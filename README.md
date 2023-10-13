@@ -1,4 +1,4 @@
-# Using a Raspberry Pi to display Q train arrival time
+# Using a Raspberry Pi to display Q-train arrival time
 
 ## Materials
 
@@ -9,12 +9,10 @@
 - A display screen
   - I chose the [HiLetgo MAX7219 Dot Matrix Module](https://www.amazon.com/gp/product/B07FFV537V/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
-## Setup and connecting the Raspberry Pi
-
-There's a few different ways to connect the Raspberry Pi to your computer (gadget mode, ssh, etc). I found that enabling SSH and connecting via IP was easiest method, as well as the most efficient. You can find my setup approach [here](setup.md).
-
 ## Development
 
-To connect via IP, I use `ssh sophiashovkovy@raspberrypi`.
+I connected to the Raspberry Pi with SSH. The [setup guide to enable SSH is here](setup.md).
 
-If it doesn't work, use`ping raspberrypi.lan` to get the IP address and ssh in with `ssh sophiashovkovy@<ip-address>`.
+## Resources
+
+- https://api.mta.info/#/subwayRealTimeFeeds
