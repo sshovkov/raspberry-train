@@ -123,10 +123,16 @@ The MAX7219 Dot Matrix Module has 5 pins on the side labeled VCC, GND, DIN, CS, 
 I made the following diagram to identify the wiring.
 ![](assets/pin_diagram.jpg)
 
-At this point I was ready to start wiring, but didn't realize that I'd boughten a Raspberry Pi model that would require me to solder the 40-pin GPIO header to the Pi myself.
+At this point I was ready to start wiring, but didn't realize that I'd boughten a Raspberry Pi model that would require me to solder the 40-pin GPIO header to the Pi myself. In hindsight, I should've bought the Zero WH with a pre-soldered GPIO header. I have never soldered something, but decided to give it an attempt.
 
-I posted in my Buy Nothing Facebook group and a kind neighbor offered up their soldering iron for me to borrow! 
-![](assets/)
+I posted my plea in a local Buy Nothing Facebook group and a kind neighbor lent me all the necessary equipment! You just need a soldering iron, solder wire, and desoldering wick in case you make a mistake.
+
+![](assets/borrow_message.png)
+
+I learned how to solder with [this YouTube video](https://www.youtube.com/watch?v=8Z-2wPWGnqE). I prepped my workspace, set up shop near an open window, and wore an n95 mask and bluelight glasses as makeshift googles.
+
+...add an image here...
+
 ## Helpful Resources
 
 - [MTA subway realtime feed](https://api.mta.info/#/subwayRealTimeFeeds) (must be signed-in to view)
