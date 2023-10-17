@@ -125,6 +125,8 @@ I made the following diagram to identify the wiring.
 
 At this point I was ready to start wiring, but didn't realize that I'd boughten a Raspberry Pi model that would require me to solder the 40-pin GPIO header to the Pi myself.
 
+I posted in my Buy Nothing Facebook group and a kind neighbor offered up their soldering iron for me to borrow! 
+![](assets/)
 ## Helpful Resources
 
 - [MTA subway realtime feed](https://api.mta.info/#/subwayRealTimeFeeds) (must be signed-in to view)
