@@ -62,7 +62,8 @@ def display_minutes(minutes):
         serial,
         cascaded=4,
         block_orientation=90,
-        blocks_arranged_in_reverse_order=True,
+        rotate=0,
+        # blocks_arranged_in_reverse_order=True,
     )
 
     message = f"{minutes} MIN"
