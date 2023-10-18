@@ -57,10 +57,14 @@ def display_minutes(minutes):
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=1, block_orientation=90, rotate=0)
 
+    text_width, text_height = draw.textsize(message)
+    x = (device.width - text_width) // 2
+    y = (device.height - text_height) // 2
+
     message = f"{minutes} MIN"
 
     with canvas(device) as draw:
-        draw.text((1, 1), message, fill="white")
+        draw.text((x, y), message, fill="white")
 
 
 if __name__ == "__main__":
