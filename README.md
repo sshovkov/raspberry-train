@@ -45,7 +45,7 @@ for entity in feed_json.entity:
 
 ```
 
-`feed_json` outputs a readable format where each `entity` is a distinct type of realtime data. In my case, each `entity` is a [trip update](https://developers.google.com/transit/gtfs-realtime/guides/trip-updates) consisting of one or more `stop_time_update`s. Each [StopTimeUpdate](https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate) is the real time update for arrival and/or departure events at a given stop.
+`feed_json` outputs a readable format where each `entity` is a distinct type of realtime data. In my case, each `entity` is a [trip update](https://developers.google.com/transit/gtfs-realtime/guides/trip-updates) consisting of one or more `stop_time_update`'s. Each [StopTimeUpdate](https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate) is the real time update for arrival and/or departure events at a given stop.
 
 ```bash
 entity {
