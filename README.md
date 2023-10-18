@@ -4,7 +4,7 @@
 
 - Raspberry Pi Zero W or WH with a power supply
   - I chose the Pi Zero W because was affordable, wireless, and minimal. I bought [a starter kit on Amazon](https://www.amazon.com/gp/product/B0748MBFTS/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) that included the power suppply and other accessories.
-  - In hindsight, I wish I'd gotten [this kit](https://www.amazon.com/DIGISHUO-Pi-Zero-WH-Pre-Soldered/dp/B0BWT2CBJT/ref=sr_1_6?crid=ZA9CDEWRLORW&keywords=raspberry%2Bpi%2Bzero%2Bwh&qid=1697548570&sprefix=raspberry%2Bpi%2Bzero%2Bwh%2Caps%2C108&sr=8-6&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&th=1) with a Raspberry Pi Zero WH with a [pre-soldered GPIO header](https://www.adafruit.com/product/3708). When I first started this project, I didn't realize the Zero W would require me to solder the pins myself.
+  - In hindsight, I wish I'd gotten [this kit](https://www.amazon.com/DIGISHUO-Pi-Zero-WH-Pre-Soldered/dp/B0BWT2CBJT/ref=sr_1_6?crid=ZA9CDEWRLORW&keywords=raspberry%2Bpi%2Bzero%2Bwh&qid=1697548570&sprefix=raspberry%2Bpi%2Bzero%2Bwh%2Caps%2C108&sr=8-6&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&th=1) with a Raspberry Pi Zero WH because of the [pre-soldered GPIO header](https://www.adafruit.com/product/3708). When I first started this project, I didn't realize the Zero W would require me to solder the pins myself.
 - \>= 4GB MicroSD card
   - You can buy [one with the Raspberry Pi OS pre-installed](https://www.amazon.com/gp/product/B09VG5M4WV/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) or install the [operating system](https://www.raspberrypi.com/software/) on a blank one.
 - A display screen
