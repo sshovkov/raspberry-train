@@ -1,5 +1,7 @@
 # LED Display of Minutes Remaining Until Train Arrival Using a Raspberry Pi
 
+![](assets/changing_time.gif)
+
 ## Materials
 
 - Raspberry Pi Zero W or WH with a power supply
@@ -186,6 +188,8 @@ This line schedules the job to run every minute. It includes a path to the Pytho
 `>> /home/sophiashovkovy/cron.log 2>&1` redirects the stdout and stderr of the cron job to a log file that I can review when debugging.
 
 A 30 second interval would be preferrable, but it's resource-intensive and the cron is not designed to run jobs at intervals shorter than a minute. I'm content with 1 minute intervals for now, but may revisit in the future. 
+
+In the end, I had a working LED display of the minutes remaining until the next train arrives at my local subway station. I moved it to the entryway table in my apartment and have been using it to time my exit perfectly, getting to wait in the comfort of my home until its time to get directly on the train 🎉
 
 ![](assets/changing_time.gif)
 
