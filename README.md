@@ -1,4 +1,4 @@
-# Using a Raspberry Pi to display Q-train arrival time
+# LED Display of Minutes Remaining Until Train Arrival Using a Raspberry Pi
 
 ## Materials
 
