@@ -6,7 +6,6 @@ from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 from datetime import datetime
-import max7219
 
 load_dotenv()
 API_ENDPOINT = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw"
