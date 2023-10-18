@@ -8,7 +8,6 @@ from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 from datetime import datetime
-import time
 
 load_dotenv()
 API_ENDPOINT = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw"
@@ -17,10 +16,8 @@ feed = gtfs_realtime_pb2.FeedMessage()
 
 
 def main():
-    while True:
-        minutes_remaining = get_train_schedule()
-        display_minutes(minutes_remaining)
-        time.sleep(30)
+    minutes_remaining = get_train_schedule()
+    display_minutes(minutes_remaining)
 
 
 def get_train_schedule():
@@ -40,7 +37,7 @@ def get_train_schedule():
     sorted_arrivals = sorted(stop_time_update_arrivals, key=lambda x: x.arrival.time)
     minutes_remaining = calculate_minutes_until_next_arrival(sorted_arrivals)
 
-    print(f"{minutes_remaining} MIN")
+    # print(f"{minutes_remaining} MIN")
     return minutes_remaining
 
 
