@@ -37,7 +37,7 @@ def get_train_schedule():
     sorted_arrivals = sorted(stop_time_update_arrivals, key=lambda x: x.arrival.time)
     minutes_remaining = calculate_minutes_until_next_arrival(sorted_arrivals)
 
-    # print(f"{minutes_remaining} MIN")
+    print(f"{minutes_remaining} MIN")
     return minutes_remaining
 
 
