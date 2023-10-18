@@ -62,9 +62,7 @@ def display_minutes(minutes):
     message = f"{minutes} MIN"
 
     with canvas(device) as draw:
-        draw.text((1, 1), message, fill="white")
-
-    device.show_message(message, fill="white", font=None, scroll_delay=0.1)
+        draw.text((1, 1), message, fill="white", font=None)
 
 
 if __name__ == "__main__":
