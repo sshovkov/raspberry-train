@@ -119,7 +119,7 @@ scp path/to/your/local/.env pi@raspberry_pi_ip_address:/path/to/remote/directory
 
 Given this was my first time working with a Raspberry Pi, I did a little bit of research first before attempting to connect my Pi to the MAX7219 Dot Matrix Module.
 
-The MAX7219 Dot Matrix Module has 5 pins on the side labeled VCC, GND, DIN, CS, and CLK. Each pin has a purpose and needs to be wired to the respective pin on the Raspberry Pi to avoid short-circuiting it.
+The MAX7219 Dot Matrix Module has 5 pins on the side labeled VCC, GND, DIN, CS, and CLK. Each pin has a purpose and needs to be wired to the [correct pin on the Raspberry Pi](https://pinout.xyz/pinout/pin19_gpio10/) to avoid short-circuiting it.
 
 I made the following diagram to identify the wiring.
 ![](assets/pin_diagram.jpg)
