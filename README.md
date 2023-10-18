@@ -169,7 +169,18 @@ def display_minutes(minutes):
         text(draw, (3, 1), message, fill="white", font=proportional(LCD_FONT))
 ```
 
-To make the code run every 30 seconds on the Raspberry Pi, I setup a cron job.
+To setup a cron job (i.e., enable your code to run on a schedule), SSH into your Raspberry Pi and run `sudo crontab -e` to open the Crontab for editing. Inside the crontab file, add the desired cron job entry to schedule the Python script.
+
+> Note: the `sudo` in `sudo crontab -e` will set the cron job for the root user.
+
+```
+* * * * * /home/sophiashovkovy/raspberry-train/myenv/bin/python /home/sophiashovkovy/raspberry-train/main.py >> /home/sophiashovkovy/cron.log 2>&1
+
+```
+
+This line schedules the job to run every minute. It includes a path to the Python interpreter that will be used to run the script and a path to the Python script that will be excuted by the cron job.
+
+`>> /home/sophiashovkovy/cron.log 2>&1` redirects the stdout and stderr of the cron job to a log file that I can review when debugging.
 
 ![](assets/changing_time.gif)
 
@@ -177,4 +188,5 @@ To make the code run every 30 seconds on the Raspberry Pi, I setup a cron job.
 
 - [MTA subway realtime feed](https://api.mta.info/#/subwayRealTimeFeeds) (must be signed-in to view)
 - [GTFS Python example](https://developers.google.com/transit/gtfs-realtime/examples/python-sample)
+- [Raspberry Pi Zero W Pinout](https://pinout.xyz/pinout/pin19_gpio10/)
 - [Luma driver for MAX7219](https://luma-led-matrix.readthedocs.io/en/latest/python-usage.html#x8-led-matrices)
