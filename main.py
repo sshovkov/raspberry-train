@@ -15,12 +15,10 @@ feed = gtfs_realtime_pb2.FeedMessage()
 
 
 def main():
-    minutes_remaining = get_train_schedule()
-    display_minutes(minutes_remaining)
-    # while True:
-    #     minutes_remaining = get_train_schedule()
-    #     display_minutes(minutes_remaining)
-    #     time.sleep(300)
+    while True:
+        minutes_remaining = get_train_schedule()
+        display_minutes(minutes_remaining)
+        time.sleep(300)
 
 
 def get_train_schedule():
