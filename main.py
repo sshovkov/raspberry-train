@@ -60,7 +60,7 @@ def calculate_minutes_until_next_arrival(sorted_arrivals):
 
 def display_minutes(minutes):
     serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=1, block_orientation=90, rotate=0)
+    device = max7219(serial, cascaded=4, block_orientation=90, rotate=0)
 
     message = f"{minutes} MIN"
 
