@@ -101,11 +101,12 @@ To setup the project on the Raspberry Pi -
 3. SSH into the Raspberry Pi
 4. Run `git clone <url>`. This creates a project directory on your Raspberry Pi. If the repo is private, you will need to enter your username and create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) in Github to use as the password.
 5. Create a Python virtual environment `python3 -m venv myenv`
+   - Remember that your Raspberry Pi is not as powerful as your computer and this step may take a few minutes.
 6. Activate the virtual environment `source myenv/bin/activate`
-7. Copy your local `.env` to the Pi using the command. My `.env` file contains the MTA API key and my local `stop_id`.
+7. Copy your local `.env` to the Pi using the command. My `.env` file contains the MTA API key and my local `stop_id`. This command should be run outside of the Raspberry Pi shell.
 
 ```
-scp path/to/your/local/.env pi@raspberry_pi_ip_address:/path/to/remote/directory`
+scp path/to/your/local/.env pi@raspberry_pi_ip_address:/path/to/remote/directory
 ```
 
 8. Run `pip install -r requirements.txt` to install all packages listed in the `requirements.txt` file.
@@ -132,6 +133,12 @@ I posted my plea in a local Buy Nothing Facebook group and a kind neighbor lent 
 I learned how to solder with [this YouTube video](https://www.youtube.com/watch?v=8Z-2wPWGnqE). I prepped my workspace, set up shop near an open window, and wore an n95 mask and bluelight glasses as makeshift googles.
 
 ...add an image here...
+
+I tested the connection of my soldering job and upon connecting the wires the LED display started to light up. To control the display, I decided to work with SPI.
+
+Once the LED display is properly wired to the Raspberry Pi, SSH into your Raspberry Pi and run `sudo raspi-config` to enable the SPI interface. Navigate to "Interfacing Options" > "SPI" and enable SPI. Reboot your Pi with `sudo reboot` after making any changes.
+
+![](assets/spi_config.png)
 
 ## Helpful Resources
 
