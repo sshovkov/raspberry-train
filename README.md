@@ -86,7 +86,7 @@ stop_time_update_arrivals = [
 
 sorted_arrivals = sorted(stop_time_update_arrivals, key=lambda x: x.arrival.time)
 ```
-To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`.
+To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`. I also added a check that re-runs the calculation with sorted_arrivals[1] if the time remaining is < 2 minutes.
 
 ## Running the program on the Raspberry Pi
 
