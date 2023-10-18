@@ -2,6 +2,14 @@ import requests
 import os
 from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
+from luma.core.legacy import text
+from luma.core.legacy.font import (
+    proportional,
+    CP437_FONT,
+    TINY_FONT,
+    SINCLAIR_FONT,
+    LCD_FONT,
+)
 from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
@@ -18,7 +26,7 @@ def main():
     while True:
         minutes_remaining = get_train_schedule()
         display_minutes(minutes_remaining)
-        time.sleep(300)
+        time.sleep(30)
 
 
 def get_train_schedule():
@@ -63,13 +71,14 @@ def display_minutes(minutes):
         cascaded=4,
         block_orientation=90,
         rotate=0,
-        # blocks_arranged_in_reverse_order=True,
+        blocks_arranged_in_reverse_order=True,
     )
 
     message = f"{minutes} MIN"
 
     with canvas(device) as draw:
-        draw.text((1, 1), message, fill="white", font=None)
+        text(draw, (3, 1), message, fill="white", font=proportional(TINY_FONT))
+        # draw.text((1, 1), message, fill="white", font=None)
 
 
 if __name__ == "__main__":

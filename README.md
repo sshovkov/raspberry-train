@@ -119,7 +119,7 @@ scp path/to/your/local/.env pi@raspberry_pi_ip_address:/path/to/remote/directory
 
 Given this was my first time working with a Raspberry Pi, I did a little bit of research first before attempting to connect my Pi to the MAX7219 Dot Matrix Module.
 
-The MAX7219 Dot Matrix Module has 5 pins on the side labeled VCC, GND, DIN, CS, and CLK. Each pin has a purpose and needs to be wired to the [correct pin on the Raspberry Pi](https://pinout.xyz/pinout/pin19_gpio10/) to avoid short-circuiting it.
+The MAX7219 Dot Matrix Module has 5 pins on the side labeled VCC, GND, DIN, CS, and CLK. Each pin has a purpose and needs to be wired to the [correct pin on the Raspberry Pi](https://pinout.xyz/pinout/pin19_gpio10/).
 
 I made the following diagram to identify the wiring.
 ![](assets/pin_diagram.jpg)
@@ -132,9 +132,9 @@ I posted my plea in a local Buy Nothing Facebook group and a kind neighbor lent 
 
 I learned how to solder with [this YouTube video](https://www.youtube.com/watch?v=8Z-2wPWGnqE). I prepped my workspace, set up shop near an open window, and wore an n95 mask and bluelight glasses as makeshift googles.
 
-...add an image here...
+The results were not perfect, but they were not bad!
 
-I tested the connection of my soldering job and upon connecting the wires the LED display started to light up. To control the display, I decided to work with SPI.
+I tested the connection of my soldering job by connecting the wires the LED display, which promptly started to light up. To control the display, I decided to work with SPI.
 
 Once the LED display is properly wired to the Raspberry Pi, SSH into your Raspberry Pi and run `sudo raspi-config` to enable the SPI interface. Navigate to "Interfacing Options" > "SPI" and enable SPI. Reboot your Pi with `sudo reboot` after making any changes.
 
