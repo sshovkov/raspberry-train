@@ -132,15 +132,49 @@ I posted my plea in a local Buy Nothing Facebook group and a kind neighbor lent 
 
 I learned how to solder with [this YouTube video](https://www.youtube.com/watch?v=8Z-2wPWGnqE). I prepped my workspace, set up shop near an open window, and wore an n95 mask and bluelight glasses as makeshift googles.
 
-The results were not perfect, but they were not bad!
+![](assets/soldering_materials.JPG)
 
-I tested the connection of my soldering job by connecting the wires the LED display, which promptly started to light up. To control the display, I decided to work with SPI.
+The results were not perfect, but they worked!
 
-Once the LED display is properly wired to the Raspberry Pi, SSH into your Raspberry Pi and run `sudo raspi-config` to enable the SPI interface. Navigate to "Interfacing Options" > "SPI" and enable SPI. Reboot your Pi with `sudo reboot` after making any changes.
+![](assets/soldering.jpeg)
+
+I tested the connection of my soldering job by connecting the wires the LED display, which promptly lit up.
+
+To control the display, I decided to work with SPI. Once the LED display is wired to the Raspberry Pi, SSH into your Raspberry Pi and run `sudo raspi-config` to enable the SPI interface. Navigate to "Interfacing Options" > "SPI" and enable SPI. Reboot your Pi with `sudo reboot` after making any changes.
 
 ![](assets/spi_config.png)
+
+To display text, I used the [Luma library](https://luma-led-matrix.readthedocs.io/en/latest/python-usage.html#x8-led-matrices), a display driver for the MAX7219. I also found that the `LCD_FONT` was the perfect font face and size for my 8x8 module.
+
+```python
+from luma.led_matrix.device import max7219
+from luma.core.interface.serial import spi, noop
+from luma.core.legacy import text
+from luma.core.legacy.font import proportional, LCD_FONT
+from luma.core.render import canvas
+...
+def display_minutes(minutes):
+    serial = spi(port=0, device=0, gpio=noop())
+    device = max7219(
+        serial,
+        cascaded=4,
+        block_orientation=90,
+        rotate=0,
+        blocks_arranged_in_reverse_order=True,
+    )
+
+    message = f"{minutes} MIN"
+
+    with canvas(device) as draw:
+        text(draw, (3, 1), message, fill="white", font=proportional(LCD_FONT))
+```
+
+To make the code run every 30 seconds on the Raspberry Pi, I setup a cron job.
+
+![](assets/changing_time.gif)
 
 ## Helpful Resources
 
 - [MTA subway realtime feed](https://api.mta.info/#/subwayRealTimeFeeds) (must be signed-in to view)
 - [GTFS Python example](https://developers.google.com/transit/gtfs-realtime/examples/python-sample)
+- [Luma driver for MAX7219](https://luma-led-matrix.readthedocs.io/en/latest/python-usage.html#x8-led-matrices)
