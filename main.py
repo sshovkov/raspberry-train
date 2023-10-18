@@ -2,6 +2,8 @@ import requests
 import os
 from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
+
+# from luma.core.legacy.font import TINY_FONT
 from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
@@ -57,14 +59,11 @@ def display_minutes(minutes):
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=1, block_orientation=90, rotate=0)
 
-    text_width, text_height = draw.textsize(message)
-    x = (device.width - text_width) // 2
-    y = (device.height - text_height) // 2
-
     message = f"{minutes} MIN"
 
     with canvas(device) as draw:
-        draw.text((x, y), message, fill="white")
+        # draw.text((x, y), message, fill="white")
+        draw.rectangle(device.bounding_box, outline="white", fill="black")
 
 
 if __name__ == "__main__":
