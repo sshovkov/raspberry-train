@@ -2,9 +2,11 @@ import requests
 import os
 from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
+from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 from datetime import datetime
+import max7219
 
 load_dotenv()
 API_ENDPOINT = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw"
@@ -54,12 +56,10 @@ def calculate_minutes_until_next_arrival(sorted_arrivals):
 
 def display_minutes(minutes):
     serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=1, block_orientation=-90)
-    device.text(minutes, 0, 0, 1)
-    device.show()
-    # device.contrast(10)
-    # message = f"{minutes} MIN"
-    # device.show_message(message, fill="white", font=None, scroll_delay=0.05)
+    device = max7219(serial)
+
+    with canvas(device) as draw:
+        draw.text((0, 0), str(minutes), fill="white")
 
 
 if __name__ == "__main__":
