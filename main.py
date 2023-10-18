@@ -62,7 +62,7 @@ def display_minutes(minutes):
     with canvas(device) as draw:
         x = (device.width - draw.textsize(message)[0]) // 2
         y = (device.height - draw.textsize(message)[1]) // 2
-        draw.text((x, y), message, fill="white")
+        draw.text((1, 1), message, fill="white")
 
 
 if __name__ == "__main__":
