@@ -28,11 +28,9 @@ MAX_RETRY_ATTEMPTS = 3
 
 
 def main():
-    while True:
-        minutes_remaining = get_train_schedule()
-        if minutes_remaining:
-            display_minutes(minutes_remaining)
-        time.sleep(60)
+    minutes_remaining = get_train_schedule()
+    if minutes_remaining:
+        display_minutes(minutes_remaining)
 
 
 def get_train_schedule():
@@ -58,6 +56,7 @@ def get_train_schedule():
             )
             minutes_remaining = calculate_minutes_until_next_arrival(sorted_arrivals)
 
+            response.close()
             # print(f"{minutes_remaining} MIN")
             return minutes_remaining
         except Exception as e:
