@@ -1,2 +1,3 @@
 myenv/
 .env
+.DS_STORE
