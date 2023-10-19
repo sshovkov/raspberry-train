@@ -33,3 +33,7 @@ def display_minutes(minutes):
     message = f"{minutes} MIN"
     with canvas(device) as draw:
         text(draw, (3, 1), message, fill="white", font=proportional(LCD_FONT))
+
+
+if __name__ == "__main__":
+    main()
