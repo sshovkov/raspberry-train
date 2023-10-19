@@ -17,13 +17,10 @@ feed = gtfs_realtime_pb2.FeedMessage()
 
 
 def main():
-    try:
-        while True:
-            minutes_remaining = get_train_schedule()
-            display_minutes(minutes_remaining)
-            time.sleep(30)
-    except KeyboardInterrupt:
-        print("Keyboard interruption. Exiting program...")
+    while True:
+        minutes_remaining = get_train_schedule()
+        display_minutes(minutes_remaining)
+        time.sleep(60)
 
 
 def get_train_schedule():
