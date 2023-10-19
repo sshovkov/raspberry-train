@@ -1,10 +1,5 @@
 import requests
 import os
-from luma.led_matrix.device import max7219
-from luma.core.interface.serial import spi, noop
-from luma.core.legacy import text
-from luma.core.legacy.font import proportional, LCD_FONT
-from luma.core.render import canvas
 from dotenv import load_dotenv
 from google.transit import gtfs_realtime_pb2
 from datetime import datetime
@@ -14,23 +9,16 @@ load_dotenv()
 API_ENDPOINT = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw"
 STOP_ID = os.environ["STOP_ID"]
 feed = gtfs_realtime_pb2.FeedMessage()
-
-serial = spi(port=0, device=0, gpio=noop())
-device = max7219(
-    serial,
-    cascaded=4,
-    block_orientation=90,
-    rotate=0,
-    blocks_arranged_in_reverse_order=True,
-)
+DATA_FILE_PATH = "/home/sophiashovkovy/datafile.txt"
 
 MAX_RETRY_ATTEMPTS = 3
 
 
 def main():
     minutes_remaining = get_train_schedule()
-    if minutes_remaining:
-        display_minutes(minutes_remaining)
+    if minutes_remaining is not None:
+        with open(DATA_FILE_PATH, "w") as f:
+            f.write(str(minutes_remaining))
 
 
 def get_train_schedule():
@@ -84,12 +72,6 @@ def calculate_minutes_until_next_arrival(sorted_arrivals):
         )
 
     return minutes_until_arrival
-
-
-def display_minutes(minutes):
-    message = f"{minutes} MIN"
-    with canvas(device) as draw:
-        text(draw, (3, 1), message, fill="white", font=proportional(LCD_FONT))
 
 
 if __name__ == "__main__":
