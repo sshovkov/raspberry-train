@@ -88,11 +88,11 @@ stop_time_update_arrivals = [
 
 sorted_arrivals = sorted(stop_time_update_arrivals, key=lambda x: x.arrival.time)
 ```
-To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`. I also added a check that re-runs the calculation with sorted_arrivals[1] if the time remaining is < 2 minutes.
+To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`. I also added a check that re-runs the calculation with `sorted_arrivals[1]` if the time remaining is < 2 minutes, the amount of time it takes me to get to the subway. 
 
 ## Running the program on the Raspberry Pi
 
-Once I had the program working locally (i.e., printing `_ MIN` in the terminal), it was time to test the functionality on the Raspberry Pi. I found a couple of different approaches to get my files running on the Pi:
+Once I had the program working locally (i.e., printing `_ MIN` in the terminal and sanity-checked against Google Maps), it was time to test the functionality on the Raspberry Pi. I found a couple of different approaches to get my files running on the Pi:
 
 1. Copy the files from local to Pi
 2. Git clone repo in Pi
