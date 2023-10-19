@@ -88,11 +88,11 @@ stop_time_update_arrivals = [
 
 sorted_arrivals = sorted(stop_time_update_arrivals, key=lambda x: x.arrival.time)
 ```
-To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`. I also added a check that re-runs the calculation with sorted_arrivals[1] if the time remaining is < 2 minutes.
+To get the time remaining until the next arrival, I calculated the difference in `sorted_arrivals[0].arrival.time` and `now()`. I also added a check that re-runs the calculation with `sorted_arrivals[1]` if the time remaining is < 2 minutes, the amount of time it takes me to get to the subway. 
 
 ## Running the program on the Raspberry Pi
 
-Once I had the program working locally (i.e., printing `_ MIN` in the terminal), it was time to test the functionality on the Raspberry Pi. I found a couple of different approaches to get my files running on the Pi:
+Once I had the program working locally (i.e., printing `_ MIN` in the terminal and sanity-checked against Google Maps), it was time to test the functionality on the Raspberry Pi. I found a couple of different approaches to get my files running on the Pi:
 
 1. Copy the files from local to Pi
 2. Git clone repo in Pi
@@ -187,7 +187,15 @@ This line schedules the job to run every minute. It includes a path to the Pytho
 
 `>> /home/sophiashovkovy/cron.log 2>&1` redirects the stdout and stderr of the cron job to a log file that I can review when debugging.
 
-A 30 second interval would be preferrable, but it's resource-intensive and the cron is not designed to run jobs at intervals shorter than a minute. I'm content with 1 minute intervals for now, but may revisit in the future. 
+Cron is not designed to run jobs at intervals shorter than a minute. If you want to have shorter intervals, you can add a while loop into the script that sleeps for a specified number of seconds before it re-runs the calculation.
+
+For example, this will calculate the time remaining twice in a single cron job. 
+```python
+while True:
+    minutes_remaining = get_train_schedule()
+    display_minutes(minutes_remaining)
+    time.sleep(30)
+```
 
 In the end, I had a working LED display of the minutes remaining until the next train arrives at my local subway station. I moved it to the entryway table in my apartment and have been using it to time my exit perfectly, getting to wait in the comfort of my home until its time to get directly on the train 🎉
 
