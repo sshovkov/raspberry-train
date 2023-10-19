@@ -142,7 +142,7 @@ I learned how to solder with [this YouTube video](https://www.youtube.com/watch?
 
 ![](assets/soldering_materials.JPG)
 
-The result was not perfect, but it did work! When I connected the wires to the LED display, the dots promptly lit up.
+The result was not perfect, but it did work! I found that the flat head tip produced the optimal conical shape. When I connected the wires to the LED display, the dots promptly lit up.
 
 ![](assets/soldering.jpeg)
 
