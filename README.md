@@ -1,4 +1,4 @@
-# LED Display of Minutes Remaining Until Train Arrival Using a Raspberry Pi
+# LED Display of Time Until Train Arrival Using a Raspberry Pi
 
 ![](assets/changing_time.gif)
 
